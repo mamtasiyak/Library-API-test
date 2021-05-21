@@ -2,6 +2,7 @@ import com.github.javafaker.Faker;
 
 public class Setup {
     public String id;
+    public String authorName;
     Faker faker = new Faker();
     String aisle = faker.number().digits(6);
 
@@ -20,4 +21,11 @@ public class Setup {
         this.id = id;
     }
 
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
 }
