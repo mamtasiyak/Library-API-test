@@ -21,7 +21,7 @@ public class Actions extends Setup {
 
     public Response getBookById() {
         Response response = given().
-                get( getURL+ getId())
+                get(getURL + getId())
                 .then()
                 .log()
                 .all()
@@ -33,7 +33,7 @@ public class Actions extends Setup {
 
     public Response getBookByName() {
         Response response = given().
-                get(getUrl1+getAuthorName())
+                get(getUrl1 + getAuthorName())
                 .then()
                 .log()
                 .all()

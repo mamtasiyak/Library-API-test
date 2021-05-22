@@ -3,10 +3,10 @@ import com.github.javafaker.Faker;
 public class Setup {
     public String id;
     public String authorName;
-    public String addURL="http://216.10.245.166/Library/Addbook.php";
-    public String getURL ="http://216.10.245.166/Library/GetBook.php?ID=";
-    public String getUrl1="http://216.10.245.166/Library/GetBook.php?AuthorName=";
-    public String deleteURL="http://216.10.245.166/Library/DeleteBook.php";
+    public String addURL = "http://216.10.245.166/Library/Addbook.php";
+    public String getURL = "http://216.10.245.166/Library/GetBook.php?ID=";
+    public String getUrl1 = "http://216.10.245.166/Library/GetBook.php?AuthorName=";
+    public String deleteURL = "http://216.10.245.166/Library/DeleteBook.php";
     Faker faker = new Faker();
     String aisle = faker.number().digits(6);
 
