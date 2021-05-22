@@ -8,7 +8,7 @@ public class Actions extends Setup {
         Response response = given().
                 contentType(ContentType.JSON).
                 body(payload).
-                post("http://216.10.245.166/Library/Addbook.php")
+                post(addURL)
                 .then()
                 .log()
                 .all()
@@ -16,13 +16,12 @@ public class Actions extends Setup {
                 .extract()
                 .response();
         setId(response.jsonPath().getString("ID"));
-        setAuthorName(response.jsonPath().getString("author"));
         return response;
     }
 
     public Response getBookById() {
         Response response = given().
-                get("http://216.10.245.166/Library/GetBook.php?ID=" + getId())
+                get( getURL+ getId())
                 .then()
                 .log()
                 .all()
@@ -34,7 +33,7 @@ public class Actions extends Setup {
 
     public Response getBookByName() {
         Response response = given().
-                get("http://216.10.245.166/Library/GetBook.php?AuthorName=" + getAuthorName())
+                get(getUrl1+getAuthorName())
                 .then()
                 .log()
                 .all()
@@ -44,11 +43,12 @@ public class Actions extends Setup {
         return response;
     }
 
-    public Response deleteBook() {
+    public Response deleteBook(String id) {
         Response response = given()
+                .header("Content-type", "application/json")
                 .contentType(ContentType.JSON)
-                .body(getId())
-                .post("http://216.10.245.166//Library/DeleteBook.php")
+                .body(id)
+                .post(deleteURL)
                 .then()
                 .log()
                 .all()
