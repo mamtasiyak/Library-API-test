@@ -8,14 +8,16 @@ public class Setup {
     public String getUrl1 = "http://216.10.245.166/Library/GetBook.php?AuthorName=";
     public String deleteURL = "http://216.10.245.166/Library/DeleteBook.php";
     Faker faker = new Faker();
+    String isbn = faker.number().digits(6);
     String aisle = faker.number().digits(6);
 
     public String payload = "{\n" +
             "\"name\":\"Chemistry\",\n" +
-            "\"isbn\":\"physics\",\n" +
+            "\"isbn\":" + isbn + ",\n" +
             "\"aisle\":" + aisle + ",\n" +
             "\"author\":\"Sonu\"\n" +
             "}";
+
 
     public String getId() {
         return id;

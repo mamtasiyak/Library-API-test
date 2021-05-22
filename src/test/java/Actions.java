@@ -44,17 +44,17 @@ public class Actions extends Setup {
     }
 
     public Response deleteBook(String id) {
+        String Id = "{\n" +
+                "\"ID\":" + id + "\n" +
+                "}";
         Response response = given()
                 .header("Content-type", "application/json")
-                .contentType(ContentType.JSON)
-                .body(id)
-                .post(deleteURL)
+                .body(Id)
+                .and()
+                .delete(deleteURL)
                 .then()
-                .log()
-                .all()
                 .statusCode(200)
-                .extract()
-                .response();
+                .extract().response();
         return response;
     }
 }

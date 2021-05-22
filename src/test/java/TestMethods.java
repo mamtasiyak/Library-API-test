@@ -12,27 +12,27 @@ public class TestMethods extends Actions {
 
     @Test
     public void getBookByIdTest() {
-        Response book = addBook(payload);
+        addBook(payload);
         Response output = getBookById();
-        Assert.assertEquals("physics", output.jsonPath().getString("isbn[0]"));
+        Assert.assertEquals(output.jsonPath().getString("book_name[0]"), "Chemistry");
 
     }
 
     @Test
     public void getBookByNameTest() {
-        Response book = addBook(payload);
+        addBook(payload);
         Response getBook = getBookById();
         setAuthorName(getBook.jsonPath().getString("author[0]"));
         Response output = getBookByName();
-        Assert.assertEquals("physics", output.jsonPath().getString("isbn[0]"));
+        Assert.assertEquals(output.jsonPath().getString("book_name[0]"), "Chemistry");
 
     }
 
     @Test
     public void removeBookTest() {
-        Response book = addBook(payload);
+        addBook(payload);
         Response output = deleteBook(getId());
-        Assert.assertEquals("book is successfully deleted", output.jsonPath().getString("Msg"));
+        Assert.assertEquals(output.jsonPath().getString("msg"), "book is successfully deleted");
     }
 
 }
